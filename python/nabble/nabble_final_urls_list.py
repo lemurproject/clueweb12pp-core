@@ -3,7 +3,6 @@ Program to process the list of nabble posts and then produce a list of forum
 init URLs
 '''
 
-import argparse
 import re
 
 
@@ -12,16 +11,6 @@ def get_nabble_base_topic_link(link):
 
 	return '%(base_link)s.html' % {'base_link' : parts.group(1)}
 
-if __name__ == '__main__':
-	def parse_cmdline_args():
-		parser = argparse.ArgumentParser()
-
-		parser.add_argument('nabble_posts', metavar = 'nabble-posts')
-
-		return parser.parse_args()
-
-	parsed = parse_cmdline_args()
-
-	with open(parsed.nabble_posts, 'r') as nabble_posts_handle:
-		for link in nabble_posts_handle:
-			print get_nabble_base_topic_link(link.strip())
+def topic_url_before_redirect(link):
+	parts = re.match(r'(.*)-td(\d+.html)', link)
+	return parts.group(1) + '-tp' + parts.group(2)

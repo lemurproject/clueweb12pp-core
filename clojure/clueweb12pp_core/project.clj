@@ -4,8 +4,6 @@
   :license {:name "The BSD License"
             :url "http://opensource.org/licenses/BSD-2-Clause"}
   :dependencies [[clj-time "0.5.1"]
-                 [edu.stanford.nlp/stanford-corenlp "1.3.4"]
-                 [edu.stanford.nlp/stanford-corenlp "1.3.4" :classifier "models"]
                  [enlive "1.1.1"]
                  [org.bovinegenius/exploding-fish "0.3.3"]
                  [org.lemurproject.clueweb12pp/warc-clojure "0.3.1"]
