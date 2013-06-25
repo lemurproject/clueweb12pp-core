@@ -18,11 +18,12 @@
   (with-open [rdr (io/reader crawl-log-file)]
     (reduce
      (fn [prev line]
-       (let [[_ resp _ _ _ _ _ _ _ _ _ _] (string/split line #"\s+")]
+       (let [[_ resp size _ _ _ _ _ _ _ _ _] (string/split line #"\s+")
+             [num-pages dataset-size]        prev]
          (if (= resp "200")
-           (+' prev 1)
+           [(+' num-pages 1) (+' dataset-size (java.lang.Long/parseLong size))]
            prev)))
-     0
+     [0 0]
      (line-seq rdr))))
 
 ;;; Obtain the crawl log files for a heritrix job
@@ -35,9 +36,11 @@
    (file-seq (io/file job-directory))))
 
 (defn write-to-csv-file
-  [csv-file datum]
-  (with-open [wrtr (io/writer csv-file :append true)]
-    (.write wrtr (format "%s,%d,\n" (.toString (core-time/now)) datum))))
+  [pages-csv-file size-csv-file datum]
+  (with-open [wrtr (io/writer pages-csv-file :append true)]
+    (.write wrtr (format "%s,%d,\n" (.toString (core-time/now)) (first datum))))
+  (with-open [wrtr (io/writer size-csv-file :append true)]
+    (.write wrtr (format "%s,%d,\n" (.toString (core-time/now)) (second datum)))))
 
 (defn plot-graph
   [csv-file png-file]
@@ -55,18 +58,20 @@
      (charts/time-series-plot
       times
       (map (fn [x] (java.lang.Long/parseLong x)) counts)
-      :x-label "Time"
-      :y-label "Number of pages")
+      :x-label "Time")
      png-file)))
 
 (defn -main
   [& args]
-  (let [[optional [job-directory csv-file png-file] banner] (cli/cli args)]
+  (let [[optional [job-directory pages-csv-file size-csv-file pages-png-file size-png-file] banner] (cli/cli args)]
     (write-to-csv-file
-     csv-file
+     pages-csv-file
+     size-csv-file
      (reduce
       (fn [prev crawl-log-file]
-        (+' prev (process-crawl-log crawl-log-file)))
-      0
+        (let [results (process-crawl-log crawl-log-file)]
+          [(+' (first prev) (first results)) (+' (second prev) (second results))]))
+      [0 0]
       (job-crawl-log-files job-directory)))
-    (plot-graph csv-file png-file)))
+    (plot-graph pages-csv-file pages-png-file)
+    (plot-graph size-csv-file size-png-file)))
