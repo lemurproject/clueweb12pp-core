@@ -10,6 +10,9 @@
                  [org.clojure/clojure "1.4.0"]
                  [org.clojure/data.json "0.2.2"]
                  [org.clojure/tools.cli "0.2.2"]
-                 [net.htmlparser.jericho/jericho-html "3.3"]]
+                 [org.clojure/tools.reader "0.7.4"]
+                 [net.htmlparser.jericho/jericho-html "3.3"]
+                 [com.rubiconproject.oss/jchronic "0.2.6"]
+                 [com.joestelmach/natty "0.6"]]
   :aot  :all
   :jvm-opts ["-Dfile.encoding=utf-8" "-Xmx2000M" "-Xss5000K" "-XX:PermSize=256M" "-XX:MaxPermSize=512M"])
