@@ -9,6 +9,12 @@
 (def clueweb12pp-time-start (ctime-core/date-time 2012 01 01))
 (def clueweb12pp-time-end (ctime-core/date-time 2012 06 30))
 
+;;;; Is the specified time in the clueweb12pp time range
+(defn in-clueweb12pp-time-range?
+  [a-time]
+  (ctime-core/within? (ctime-core/interval clueweb12pp-time-start clueweb12pp-time-end)
+                      a-time))
+
 ;;;; Applies f to every record in the supplied warc.gz file
 (defn warc-file-reduce
   [f init warc-file-path]

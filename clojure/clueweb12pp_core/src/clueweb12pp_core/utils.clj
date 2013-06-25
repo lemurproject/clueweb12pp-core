@@ -1,6 +1,6 @@
 ;;;; Simple utilities like literal date mapping etc.
 
-(ns clueweb12pp_core.utils
+(ns clueweb12pp-core.utils
   (:gen-class))
 
 (def month-TLA
