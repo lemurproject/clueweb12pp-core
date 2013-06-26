@@ -7,7 +7,7 @@
             [clojure.tools.cli :as cli]
             [clojure.data.json :as json]
             [clueweb12pp-core.core :as core]
-            [clueweb12pp_core.utils :as utils]
+            [clueweb12pp-core.utils :as utils]
             [net.cgrand.enlive-html :as html]
             (org.bovinegenius [exploding-fish :as uri])))
 
