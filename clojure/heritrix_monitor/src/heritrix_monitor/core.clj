@@ -43,7 +43,7 @@
     (.write wrtr (format "%s,%d,\n" (.toString (core-time/now)) (second datum)))))
 
 (defn plot-graph
-  [csv-file png-file]
+  [csv-file png-file x-label y-label data-transform]
   (let [time-count (map
                     (fn [x] (string/split x #","))
                     (string/split
@@ -57,8 +57,11 @@
     (incanter/save
      (charts/time-series-plot
       times
-      (map (fn [x] (java.lang.Long/parseLong x)) counts)
-      :x-label "Time")
+      (map
+       data-transform
+       (map (fn [x] (java.lang.Long/parseLong x)) counts))
+      :x-label x-label
+      :y-label y-label)
      png-file)))
 
 (defn -main
@@ -73,5 +76,5 @@
           [(+' (first prev) (first results)) (+' (second prev) (second results))]))
       [0 0]
       (job-crawl-log-files job-directory)))
-    (plot-graph pages-csv-file pages-png-file)
-    (plot-graph size-csv-file size-png-file)))
+    (plot-graph pages-csv-file pages-png-file "Timestamp" "Number of pages" identity)
+    (plot-graph size-csv-file size-png-file "Timestamp" "Size in GB" (fn [x] (/ x 1e9)))))
