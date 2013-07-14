@@ -44,10 +44,13 @@ def save_disqus_posts(ids_file, destination, api):
 					save_disqus_posts_for_thread(new_id.strip(), f, api)
 					success = True
 					break
-				except APIError:
+				except APIError as err:
 					# redownloading is the only choice.
 					# Wait out 2000 seconds since the API doesn't
 					# tell us how many seconds we need to wait for
+					if err.code == 2:
+						continue # forum doesn't exist so just iterate out
+
 					sys.stderr.write('INFO: APIError' + '\n')
 					traceback.print_stack()
 					time.sleep(2000)
