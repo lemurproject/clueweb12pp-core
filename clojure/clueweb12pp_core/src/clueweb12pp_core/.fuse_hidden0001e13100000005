@@ -22,36 +22,28 @@
 
 (defn links-in-source
   [jericho-source regex]
-  (filter
-   (fn [a-link] (re-find regex a-link))
-   (map
-    (fn [a-tag] (.getAttributeValue a-tag "href"))
-    (.getAllElements
-     jericho-source
-     HTMLElementName/A))))
+  (map
+   (fn [a-tag] (.getAttributeValue a-tag "href"))
+   (.getAllElements
+    jericho-source
+    HTMLElementName/A)))
 
 (defn dates-on-page
   [jericho-source]
-  (try (page-times/dates-in-text
-        (.toString
-         (TextExtractor. jericho-source)))
-       (catch Exception e [])))
+  (page-times/dates-in-text
+   (.toString
+    (TextExtractor. jericho-source))))
 
 (defn handle-record
   ([record] (handle-record record #".*"))
   ([record regex]
-     (let [source          (try (Source. (:payload-stream record))
-                                (catch Exception e nil))
-           links           (try (links-in-source source regex)
-                                (catch Exception e []))
-           dates           (try (dates-on-page source)
-                                (catch Exception e []))
+     (let [source          (Source. (:payload-stream record))
+           links           (links-in-source source regex)
+           dates           (dates-on-page source)
            processed-links (map (fn [a-link] (if (uri/absolute? a-link)
                                               a-link
-                                              (uri/resolve-path (:target-uri-str record)
-                                                                a-link)))
-                                links)]
-       (list processed-links dates))))
+                                              (uri/reso))))]
+       (list links dates))))
 
 (defn process-warc-files-list
   [warc-files-list]
@@ -65,9 +57,4 @@
     (doseq [warc-file (process-warc-files-list warc-files-list)]
       (doseq [record (warc/skip-get-response-records-seq
                       (warc/get-warc-reader warc-file))]
-        (try (let [[links dates] (handle-record record)]
-               (when (some (fn [x] (core/in-clueweb12pp-time-range? x))
-                           dates)
-                 (doseq [link links]
-                   (println link))))
-             (catch Exception e nil))))))
+        (println (handle-record record))))))

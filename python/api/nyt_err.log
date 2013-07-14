@@ -1,0 +1,1362 @@
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()
+  File "nyt.py", line 116, in <module>
+    calls_made = get_posts_on_date(dt_str, parsed.api, offset)
+  File "nyt.py", line 96, in get_posts_on_date
+    record_err()
+  File "nyt.py", line 68, in record_err
+    traceback.print_stack()

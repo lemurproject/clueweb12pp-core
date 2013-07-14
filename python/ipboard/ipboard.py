@@ -3,6 +3,7 @@ Core IP.Board forum code
 '''
 
 import re
+import sys
 import urlparse
 
 
@@ -63,3 +64,27 @@ def process_friendly_urls_subforum_mod_rewrite(url):
 
 	'''
 	return re.search(r'(.*/forum/.*/).*', url).group(1)
+
+def process_unfriendly_topic_urls(url):
+	'''
+	Strip out fragments and just keep the topic id in there
+	'''
+	url_parts = list(urlparse.urlparse(url))
+	query_part = url_parts[4]
+
+	try:
+		query_part = re.search(r'.*(showtopic=\d+).*', query_part).group(1)
+		url_parts[4] = query_part
+		return urlparse.urlunparse(url_parts)
+	except:
+		pass
+
+def process_mod_rewrite_topic_urls(url):
+	'''
+	Strip out fragments and just keep the topic id in there
+	'''
+	url_match = re.search(r'(.*/topic/\d+.*/).*/?', url)
+	try:
+		return url_match.group(1).replace('unread', '')
+	except:
+		pass

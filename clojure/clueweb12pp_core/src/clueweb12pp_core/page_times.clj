@@ -31,4 +31,5 @@
      (fn [x] (into [] x))
      (map
       (fn [group] (.getDates group))
-      (.parse *parser* text))))))
+      (try (.parse *parser* text)
+           (catch Exception e [])))))))
