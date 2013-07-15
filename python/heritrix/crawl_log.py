@@ -96,5 +96,6 @@ if __name__ == '__main__':
 	else:
 		target_src_map = process_heritrix_job(parsed.heritrix_job_directory, redirect = True)
 
-	import ipdb
-	ipdb.set_trace()
+	for target, src in target_src_map.items():
+		print target
+		print src
