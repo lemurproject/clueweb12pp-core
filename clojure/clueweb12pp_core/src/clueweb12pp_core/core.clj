@@ -118,3 +118,9 @@
   [warc-payload]
   (let [first-line (first (clojure.string/split-lines warc-payload))]
     (re-find "200" first-line)))
+
+(defn process-text-file
+  [text-file]
+  (clojure.string/split
+   (slurp text-file)
+   #"\n"))
