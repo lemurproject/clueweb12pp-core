@@ -23,8 +23,7 @@
 (defn links-in-source
   [jericho-source regex]
   (filter
-   (fn [a-link] (try (re-find regex a-link)
-                    (catch Exception e false)))
+   (fn [a-link] (re-find regex a-link))
    (map
     (fn [a-tag] (.getAttributeValue a-tag "href"))
     (.getAllElements
