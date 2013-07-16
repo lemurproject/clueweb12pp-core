@@ -3,7 +3,6 @@ Core IP.Board forum code
 '''
 
 import re
-import sys
 import urlparse
 
 

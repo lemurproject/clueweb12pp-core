@@ -12,9 +12,9 @@ from disqusapi import DisqusAPI, Paginator
 
 
 CLUEWEB_START_EPOCH = 1325394000
-OUTPUT_FILE = '/bos/tmp19/spalakod/clueweb12pp/jobs/disqus/posts2.gz'
-OUTPUT_HANDLE = gzip.open(OUTPUT_FILE, 'ab+')
-DISQUS_LOG = 'posts.log'
+OUTPUT_FILE = None
+OUTPUT_HANDLE = None
+DISQUS_LOG = 'posts_feb.log'
 
 def parse_creation_time(date_str):
 	return parser.parse(date_str)
@@ -34,6 +34,7 @@ if __name__ == '__main__':
 		parser.add_argument('secret_key', metavar = 'secret-key', help = 'Disqus API secret key')
 		parser.add_argument('public_key', metavar = 'public-key', help = 'Disqus API public key')
 		parser.add_argument('--start-date', dest = 'start_date', type = int, default = CLUEWEB_START_EPOCH, help = 'Start at a custom date')
+		parser.add_argument('--dest', dest = 'destination')
 
 		return parser.parse_args()
 
@@ -46,6 +47,9 @@ if __name__ == '__main__':
 	last_read_time = since_arg
 
 	posts_downloaded = 0
+
+	OUTPUT_FILE = parsed.destination
+	OUTPUT_HANDLE = gzip.open(OUTPUT_FILE, 'ab+')
 
 	while True:
 		paginator = Paginator(api.threads.list, since = last_read_time, order = 'asc')
