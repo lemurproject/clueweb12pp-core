@@ -1,7 +1,9 @@
 ;;;; Simple utilities like literal date mapping etc.
 
 (ns clueweb12pp-core.utils
-  (:gen-class))
+  (:gen-class)
+  (:require [clojure.xml :as xml]
+            [clojure.zip :as zip]))
 
 (def month-TLA
   ["Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"])
@@ -19,3 +21,9 @@
              (month->int s)
              s))
     (clojure.string/split a-str #"\s+"))))
+
+(defn zip-str
+  [s]
+  (zip/xml-zip
+   (xml/parse
+    (java.io.ByteArrayInputStream. (.getBytes s)))))
