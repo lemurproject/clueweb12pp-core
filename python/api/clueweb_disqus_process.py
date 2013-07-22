@@ -20,6 +20,18 @@ def iter_clueweb_posts(post_data_file):
 
 	f.close()
 
+def iter_clueweb_posts_raw(post_data_file):
+	f = gzip.open(post_data_file, 'r')
+
+	while True:
+		try:
+			yield f.readline()
+		except:
+			break
+
+	f.close()
+
+
 def last_date(post_data_file):
 	last_date = None
 
@@ -31,6 +43,14 @@ def last_date(post_data_file):
 def last_date_epoch(post_data_file):
 	return (last_date(post_data_file) - datetime.datetime(1970, 1, 1)).total_seconds()
 
+def num_posts(post_data_file):
+	count = 0
+
+	for count, _ in enumerate(iter_clueweb_posts_raw(post_data_file)):
+		pass
+
+	return count
+
 if __name__ == '__main__':
 	def parse_cmdline_args():
 		parser = argparse.ArgumentParser()
@@ -38,6 +58,7 @@ if __name__ == '__main__':
 		parser.add_argument('post_file', metavar = 'post-file', )
 		parser.add_argument('--last-date-epoch', dest = 'last_date_epoch', default = False, action = 'store_true', help = 'Identify last epoch in posts file')
 		parser.add_argument('--last-date', dest = 'last_date', default = False, action = 'store_true', help = 'Identify last epoch in posts file')
+		parser.add_argument('--count', dest = 'count', default = False, action = 'store_true')
 
 		return parser.parse_args()
 
@@ -48,3 +69,6 @@ if __name__ == '__main__':
 
 	elif parsed.last_date:
 		print last_date(parsed.post_file)
+
+	elif parsed.count:
+		print num_posts(parsed.post_file)
