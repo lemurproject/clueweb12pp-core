@@ -37,9 +37,12 @@ def plot_curve(num_posts, last_date, title, csv_file, png_file):
 	ax = fig.add_subplot(111)
 	ax.plot(fds, y1)
 
+	ax.set_xlim(-1,100)
 	ax.xaxis.set_major_locator(dates.MinuteLocator())
 	ax.xaxis.set_major_formatter(hfmt)
 	plt.xticks(rotation='vertical')
+	plt.xlabel('Timestamp')
+	plt.ylabel('Number of posts')
 	plt.subplots_adjust(bottom=.3)
 	plt.savefig(png_file)
 
