@@ -73,5 +73,5 @@ if __name__ == '__main__':
 
 	plot_curve(num_posts, last_date, parsed.month, parsed.csv_file, parsed.png_file)
 
-	with open(parsed.month + '_dates.txt', 'w') as month_handle:
+	with open('/bos/www/htdocs/spalakod/posts/' + parsed.month + '_dates.txt', 'w') as month_handle:
 		month_handle.write('Dates: ' + str(last_date))
