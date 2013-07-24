@@ -1,5 +1,5 @@
 '''
-Code to process Posts.xml in raw StackOverflow data
+Stackoverflow comments.xml data
 '''
 
 import argparse
@@ -13,14 +13,10 @@ CLUEWEB_END = datetime.datetime(2012, 06, 30)
 
 class StackOverflowContentHandler(xml.sax.ContentHandler):
 	def __init__(self):
-		self.comment_post_count = 0 # keeps track of posts with comments
-		self.question_count = 0 # keep track of asked questions
-		self.question_with_answer_count = 0 # keep track of asked questions that got answers
-		self.post_count = 0
 		xml.sax.ContentHandler.__init__(self)
 
 	def startElement(self, name, attrs):
-		self.process_post_row(name, attrs)
+		self.process_row(name, attrs)
 
 	def endElement(self, name):
 		if name == 'posts':
@@ -29,38 +25,26 @@ class StackOverflowContentHandler(xml.sax.ContentHandler):
 			print 'Number of posts with answers:', self.question_with_answer_count
 			print 'Number of posts with comments:', self.comment_post_count
 
-	def process_post_row(self, name, attrs):
+	def process_row(self, name, attrs):
 		if name != 'row':
 			return
-
 		creation_date = parse(attrs.get('CreationDate'))
 
 		if creation_date <= CLUEWEB_END and creation_date >= CLUEWEB_START:
 
-			print attrs.get('OwnerUserId')
+			print attrs.get('UserId')
 
-			self.post_count += 1
-
-			if int(attrs.get('PostTypeId')) == 1:
-				self.question_count += 1
-
-				if int(attrs.get('AnswerCount')) > 0:
-					self.question_with_answer_count += 1
-
-			if int(attrs.get('CommentCount')) > 0:
-				self.comment_post_count += 1
 
 if __name__ == '__main__':
 	def parse_cmdline_args():
 		parser = argparse.ArgumentParser()
 
-		parser.add_argument('posts_file', metavar = 'posts-file')
-		parser.add_argument('--stats', dest = 'stats', action = 'store_true', default = False)
+		parser.add_argument('comments_file', metavar = 'comments-file')
+
 		return parser.parse_args()
 
 	parsed = parse_cmdline_args()
 
-	source = open(parsed.posts_file)
+	source = open(parsed.comments_file)
 
-	if parsed.stats:
-		xml.sax.parse(source, StackOverflowContentHandler())
+	xml.sax.parse(source, StackOverflowContentHandler())
