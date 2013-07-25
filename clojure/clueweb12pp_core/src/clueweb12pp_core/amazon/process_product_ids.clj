@@ -5,7 +5,8 @@
   (:require [clojure.tools.cli :as cli]
             [clueweb12pp-core.core :as core]
             [net.cgrand.enlive-html :as html]
-            [warc-clojure.core :as warc])
+            [warc-clojure.core :as warc]
+            (org.bovinegenius [exploding-fish :as uri]))
   (:import [net.htmlparser.jericho Source TextExtractor Config LoggerProvider]))
 
 (defn product-reviews-link
@@ -14,21 +15,24 @@
 
 (defn handle-record
   [record]
-  (map
-   (fn [product-match] (product-reviews-link (second product-match)))
-   (filter
-    identity
+  (filter
+   uri/absolute?
+   (distinct
     (map
-     (fn [a-link]
-       (re-find #".*/dp/(.*)" a-link))
-     (map
-      (fn [an-a-tag]
-        (-> an-a-tag
-           :attrs
-           :href))
-      (html/select
-       (html/html-resource (:payload-stream record))
-       [:a]))))))
+     (fn [product-match] product-match)
+     (filter
+      identity
+      (map
+       (fn [a-link]
+         (re-find #".*product-reviews.*" a-link))
+       (map
+        (fn [an-a-tag]
+          (-> an-a-tag
+             :attrs
+             :href))
+        (html/select
+         (html/html-resource (:payload-stream record))
+         [:a]))))))))
 
 (defn -main
   [& args]
@@ -37,4 +41,5 @@
       (doseq [record (warc/skip-get-response-records-seq
                       (warc/get-warc-reader warc-file))]
         (doseq [link (handle-record record)]
-          (println link))))))
+          (println link)
+          (flush))))))
