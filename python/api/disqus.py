@@ -12,8 +12,9 @@ from disqusapi import DisqusAPI, Paginator
 
 
 CLUEWEB_START_EPOCH = 1325394000
-OUTPUT_FILE = None
-OUTPUT_HANDLE = None
+OUTPUT_FILE = '/bos/tmp19/spalakod/clueweb12pp/jobs/disqus/posts2.gz'
+OUTPUT_HANDLE = gzip.open(OUTPUT_FILE, 'ab+')
+DISQUS_LOG = 'posts.log'
 
 def parse_creation_time(date_str):
 	return parser.parse(date_str)
@@ -33,8 +34,6 @@ if __name__ == '__main__':
 		parser.add_argument('secret_key', metavar = 'secret-key', help = 'Disqus API secret key')
 		parser.add_argument('public_key', metavar = 'public-key', help = 'Disqus API public key')
 		parser.add_argument('--start-date', dest = 'start_date', type = int, default = CLUEWEB_START_EPOCH, help = 'Start at a custom date')
-		parser.add_argument('--log', dest = 'log', default = 'posts.log', help = 'Log download details here')
-		parser.add_argument('--dest', dest = 'destination')
 
 		return parser.parse_args()
 
@@ -48,11 +47,6 @@ if __name__ == '__main__':
 
 	posts_downloaded = 0
 
-	OUTPUT_FILE = parsed.destination
-	OUTPUT_HANDLE = gzip.open(OUTPUT_FILE, 'ab+')
-
-	DISQUS_LOG = parsed.log
-
 	while True:
 		paginator = Paginator(api.threads.list, since = last_read_time, order = 'asc')
 		try:
@@ -62,10 +56,7 @@ if __name__ == '__main__':
 				posts_downloaded += 1
 				last_read_time = (parse_creation_time(result['createdAt']) - datetime.datetime(1970,1,1)).total_seconds()
 				log(posts_downloaded)
-		except Exception as e:
-			if e.code == 15:
-				# this is when disqus fucks up.
-				# add increment the last_read_time and try again
-				last_read_time += 1
-				continue
+		except:
 			time.sleep(2000)
+
+		

@@ -8,34 +8,27 @@ import json
 import sys
 import time
 import traceback
-
-import clueweb_disqus_process
 from disqusapi import DisqusAPI, Paginator, APIError
 
+FAILED_IDS = 'disqus_failed_posts.txt'
+FAILED_IDS_HANDLE = open(FAILED_IDS, 'a+')
+sys.stderr = FAILED_IDS_HANDLE
 
-FAILED_IDS = None
-FAILED_IDS_HANDLE = None
-
-def process_disqus_file(disqus_file, downloaded_file):
+def process_disqus_file(disqus_file):
 	'''
 	process file
 	'''
+	f = gzip.open(disqus_file, 'r')
 
-	downloaded_ids = []
-	if not downloaded_file is None:
-		with open(downloaded_file, 'r') as handle:
-			for new_line in handle:
-				downloaded_ids.append(new_line.strip())
+	while True:
+		new_line = f.readline()
 
-	downloaded_ids = set(downloaded_ids)
+		if not new_line:
+			return
 
-	for post_line in clueweb_disqus_process.iter_clueweb_posts_raw(disqus_file):
-		try:
-			parsed = json.loads(post_line)
-			if parsed['id'] not in downloaded_ids and parsed['posts'] > 0:
-				print parsed['id']
-		except:
-			continue
+		parsed = json.loads(new_line)
+		if parsed['posts'] > 0:
+			print parsed['id']
 
 def save_disqus_posts(ids_file, destination, api):
 	'''
@@ -84,10 +77,8 @@ if __name__ == '__main__':
 		parser.add_argument('--secret-key', dest = 'secret_key')
 		parser.add_argument('--public-key', dest = 'public_key')
 
-		parser.add_argument('-d', '--dump-ids', dest = 'dump_ids', nargs = '+', help = 'Pass in a posts.gz file for us to obtain a list of posts')
+		parser.add_argument('-d', '--dump-ids', dest = 'dump_ids', default = None, help = 'Pass in a posts.gz file for us to obtain a list of posts')
 		parser.add_argument('-s', '--save-posts', dest = 'save_posts', default = None, help = 'Pass in a list of ids and we download the posts')
-		parser.add_argument('-f', '--failed-ids', dest = 'failed_ids', default = 'disqus_failed_posts.txt')
-		parser.add_argument('--downloaded', dest = 'downloaded', default = None)
 		parser.add_argument('--destination', dest = 'destination', help = 'Where to store the resulting posts. Name must end in .gz')
 
 		return parser.parse_args()
@@ -95,16 +86,8 @@ if __name__ == '__main__':
 	parsed = parse_cmdline_args()
 
 	if parsed.dump_ids:
-		for dump_id_file in parsed.dump_ids:
-			if parsed.downloaded:
-				process_disqus_file(dump_id_file, parsed.downloaded)
-			else:
-				process_disqus_file(dump_id_file, None)
+		process_disqus_file(parsed.dump_ids)
 
 	elif parsed.save_posts:
-		FAILED_IDS = parsed.failed_ids
-		FAILED_IDS_HANDLE = open(FAILED_IDS, 'a+')
-		sys.stderr = FAILED_IDS_HANDLE
-
 		api = DisqusAPI(parsed.secret_key, parsed.public_key)
 		save_disqus_posts(parsed.save_posts, parsed.destination, api)
