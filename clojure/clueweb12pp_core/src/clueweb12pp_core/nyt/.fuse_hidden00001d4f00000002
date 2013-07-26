@@ -1,0 +1,24 @@
+;;;; We need to know how many articles and consequently the number of
+;;;; discussions in the NYT corpus. Here we print out a sequence of
+;;;; article urls.
+
+(ns clueweb12pp-core.nyt.nyt-compute-stats
+  (:gen-class :main true)
+  (:require [clojure.java.io :as io]
+            [clojure.tools.cli :as cli]
+            [clueweb12pp-core.core :as core]
+            [clueweb12pp-core.nyt.process-nyt-date-file :as process-date-file]))
+
+(defn -main
+  [& args]
+  (let [[optional [nyt-jobs-directory] banner] (cli/cli args)
+        directory-seq (rest (file-seq (io/file nyt-jobs-directory)))
+        article-comment-counts {}]
+    (reduce
+     (fn [acc file-data]
+       (merge-with +' acc file-data))
+     (reduce
+      (fn [acc line] (merge-with +' {(:articleURL line) 1} acc))
+      {}
+      (process-date-file/nyt-date-file-contents ))
+     (file-))))
