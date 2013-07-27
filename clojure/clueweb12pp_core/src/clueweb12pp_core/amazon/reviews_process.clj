@@ -26,7 +26,7 @@
         
         reviews               (html/select
                                product-reviews-table
-                               [:div])
+                               [:table :td :> :div])
 
         parse-amzn-date       (fn [a-date-str]
                                 (let [[mon-str date-str yr-str]
@@ -38,20 +38,22 @@
                                    (java.lang.Integer/parseInt date-str))))
         
         date-of-review        (fn [a-review]                                
-                                (html/text
-                                 (first
-                                  (html/select
-                                   a-review
-                                   [:nobr]))))]
+                                (parse-amzn-date
+                                 (html/text
+                                  (first
+                                   (html/select
+                                    a-review
+                                    [:nobr])))))]
+    
     (do
+      (println (:target-uri-str record))
       (when product-reviews-table
-        (map
-         #(println %)
-         reviews))
-      (map
-       (fn [a-review]
-         (println (date-of-review a-review)))
-       reviews))))
+        (clojure.pprint/pprint
+         (filter
+          (fn [a-review]
+            (core/in-clueweb12pp-time-range?
+             (date-of-review a-review)))
+          reviews))))))
 
 (defn handle-job
   [job-directory]
