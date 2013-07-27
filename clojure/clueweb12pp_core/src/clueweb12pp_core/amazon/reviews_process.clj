@@ -32,10 +32,12 @@
                                 (let [[mon-str date-str yr-str]
                                       (rest
                                        (re-find #"(.*) (.*), (.*)" a-date-str))]
-                                  (core-time/date-time
-                                   (java.lang.Integer/parseInt yr-str)
-                                   (utils/month-full-name->int mon-str)
-                                   (java.lang.Integer/parseInt date-str))))
+                                  (try
+                                   (core-time/date-time
+                                    (java.lang.Integer/parseInt yr-str)
+                                    (utils/month-full-name->int mon-str)
+                                    (java.lang.Integer/parseInt date-str))
+                                   (catch Exception e (println "FAIL" a-date-str)))))
         
         date-of-review        (fn [a-review]                                
                                 (parse-amzn-date
@@ -43,24 +45,41 @@
                                   (first
                                    (html/select
                                     a-review
-                                    [:nobr])))))]
+                                    [:nobr])))))
+        
+        get-review-page       (fn [a-review]
+                                (first
+                                 (flatten
+                                  (map
+                                   (fn [a-tag]
+                                     (-> a-tag
+                                        :attrs
+                                        :href))
+                                   (filter
+                                    (fn [a-tag]
+                                      (re-find #"Comment.*\d+.*" (html/text a-tag)))
+                                    (html/select
+                                     a-review
+                                     [:a]))))))]
     
-    (do
-      (println (:target-uri-str record))
-      (when product-reviews-table
-        (clojure.pprint/pprint
-         (filter
-          (fn [a-review]
-            (core/in-clueweb12pp-time-range?
-             (date-of-review a-review)))
-          reviews))))))
+    (when product-reviews-table
+      (map
+       (fn [a-review]
+         (get-review-page a-review))
+       (filter
+        (fn [a-review]
+          (core/in-clueweb12pp-time-range?
+           (date-of-review a-review)))
+        reviews)))))
 
 (defn handle-job
   [job-directory]
   (doseq [warc-file (core/job-warc-files job-directory)]
     (doseq [record (warc/skip-get-response-records-seq
                     (warc/get-warc-reader warc-file))]
-      (handle-record record))))
+      (doseq [link (handle-record record)]
+        (when link
+          (println link))))))
 
 (defn -main
   [& args]
