@@ -1,4 +1,5 @@
-;;;; Process the amazon nodes and extract product ids
+;;;; Process the amazon node pages, extract links to product reviews
+;;;; and emit them to a file.
 
 (ns clueweb12pp-core.amazon.process-product-ids
   (:gen-class :main true)
@@ -6,12 +7,7 @@
             [clueweb12pp-core.core :as core]
             [net.cgrand.enlive-html :as html]
             [warc-clojure.core :as warc]
-            (org.bovinegenius [exploding-fish :as uri]))
-  (:import [net.htmlparser.jericho Source TextExtractor Config LoggerProvider]))
-
-(defn product-reviews-link
-  [product-id]
-  (clojure.string/join "" (list "http://www.amazon.com/product-reviews/" product-id)))
+            (org.bovinegenius [exploding-fish :as uri])))
 
 (defn handle-record
   [record]
@@ -24,7 +20,9 @@
       identity
       (map
        (fn [a-link]
-         (re-find #".*product-reviews.*" a-link))
+         (try
+           (re-find #".*product-reviews.*" a-link)
+           (catch Exception e nil)))
        (map
         (fn [an-a-tag]
           (-> an-a-tag
