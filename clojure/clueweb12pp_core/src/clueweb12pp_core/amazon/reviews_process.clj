@@ -37,7 +37,7 @@
                                     (java.lang.Integer/parseInt yr-str)
                                     (utils/month-full-name->int mon-str)
                                     (java.lang.Integer/parseInt date-str))
-                                   (catch Exception e (println "FAIL" a-date-str)))))
+                                   (catch Exception e nil))))
         
         date-of-review        (fn [a-review]                                
                                 (parse-amzn-date
