@@ -56,11 +56,16 @@
 
 (defn handle-warc-file
   [warc-file regex]
-  (doseq [record (warc/skip-get-response-records-seq
-                  (warc/get-warc-reader warc-file))]
-    (let [[links dates] (handle-record record regex)]
-      (when (some (fn [a-date] (core/in-clueweb12pp-time-range? a-date))
-                  dates)
-        (doseq [link links]
-          (println link)
-          (flush))))))
+  (binding [*out* (java.io.FileWriter.
+                           (clojure.string/join "-"
+                                                (list
+                                                 (last (clojure.string/split warc-file #"/"))
+                                                     "-showthread-liks")))]
+   (doseq [record (warc/skip-get-response-records-seq
+                   (warc/get-warc-reader warc-file))]
+     (let [[links dates] (handle-record record regex)]
+       (when (some (fn [a-date] (core/in-clueweb12pp-time-range? a-date))
+                   dates)
+         (doseq [link links]
+           (println link)
+           (flush)))))))

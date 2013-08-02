@@ -97,7 +97,7 @@
   "Warc files without a .open at the end"
   [job-directory]
   (filter
-   (fn [warc-file] (re-find #".*.open" warc-file))
+   (fn [warc-file] (not (re-find #".*.open" warc-file)))
    (job-warc-files job-directory)))
 
 ;;;; We compute the crawled links and then the
@@ -149,8 +149,9 @@
                               (fn [warc-file]
                                 (not (contains? processed-warc-files warc-file)))
                               (job-closed-warc-files heritrix-directory))]
-    (doseq [warc-file unprocessed-warcs]
-      (warc-file-handler warc-file))
+    (pmap
+     (fn [warc-file] (warc-file-handler warc-file))
+     unprocessed-warcs)
     (spit process-save-file (clojure.string/join "\n" unprocessed-warcs))))
 
 (defn uri-resolve-path-query
