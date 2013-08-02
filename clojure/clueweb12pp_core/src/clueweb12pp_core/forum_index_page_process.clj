@@ -17,9 +17,6 @@
 
 (set! (. Config LoggerProvider) LoggerProvider/DISABLED)
 
-(def yuku-topic-regex #".*/topic/.*")
-(def zeta-topic-regex #".*/topic/.*")
-
 (defn links-in-source
   [jericho-source regex]
   (filter
@@ -39,7 +36,6 @@
        (catch Exception e [])))
 
 (defn handle-record
-  ([record] (handle-record record #".*"))
   ([record regex]
      (let [source          (try (Source. (:payload-stream record))
                                 (catch Exception e nil))
@@ -47,28 +43,24 @@
                                 (catch Exception e []))
            dates           (try (dates-on-page source)
                                 (catch Exception e []))
-           processed-links (map (fn [a-link] (if (uri/absolute? a-link)
-                                              a-link
-                                              (uri/resolve-path (:target-uri-str record)
-                                                                a-link)))
-                                links)]
-       (list processed-links dates))))
+           processed-links (map
+                            (fn [a-link]
+                              (if (uri/absolute? a-link)
+                                a-link
+                                (core/uri-resolve-path-query
+                                 (:target-uri-str record)
+                                 a-link)))
+                            links)]
+       (list processed-links dates)))
+  ([record] (handle-record record #".*")))
 
-(defn process-warc-files-list
-  [warc-files-list]
-  (clojure.string/split
-   (slurp warc-files-list)
-   #"\n"))
-
-(defn -main
-  [& args]
-  (let [[optional [warc-files-list] banner] (cli/cli args)]
-    (doseq [warc-file (process-warc-files-list warc-files-list)]
-      (doseq [record (warc/skip-get-response-records-seq
-                      (warc/get-warc-reader warc-file))]
-        (try (let [[links dates] (handle-record record)]
-               (when (some (fn [x] (core/in-clueweb12pp-time-range? x))
-                           dates)
-                 (doseq [link links]
-                   (println link))))
-             (catch Exception e nil))))))
+(defn handle-warc-file
+  [warc-file regex]
+  (doseq [record (warc/skip-get-response-records-seq
+                  (warc/get-warc-reader warc-file))]
+    (let [[links dates] (handle-record record regex)]
+      (when (some (fn [a-date] (core/in-clueweb12pp-time-range? a-date))
+                  dates)
+        (doseq [link links]
+          (println link)
+          (flush))))))

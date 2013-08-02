@@ -4,6 +4,7 @@
            [clojure.java.io :as io]
            [clojure.set]
            [net.cgrand.enlive-html :as html]
+           [org.bovinegenius.exploding-fish :as uri]
            [warc-clojure.core :as warc]))
 
 (def clueweb12pp-time-start (ctime-core/date-time 2012 01 01))
@@ -92,6 +93,13 @@
          (not (re-find #".*latest.*" (.getAbsolutePath file-obj))))) ; this needed since a currently running job with get two of these
     (file-seq (io/file job-directory)))))
 
+(defn job-closed-warc-files
+  "Warc files without a .open at the end"
+  [job-directory]
+  (filter
+   (fn [warc-file] (re-find #".*.open" warc-file))
+   (job-warc-files job-directory)))
+
 ;;;; We compute the crawled links and then the
 ;;;; links pointed to in the body. The set difference
 ;;;; is the outlinks list.
@@ -124,3 +132,32 @@
   (clojure.string/split
    (slurp text-file)
    #"\n"))
+
+(defn warc-process-engine
+  "Framework to process a heritrix job.
+   Args:
+    heritrix-directory : /path/to/job/directory
+    process-save-file : where to save list of processed warc files
+    warc-file-handler : where to save list"
+  [heritrix-directory process-save-file warc-file-handler]
+
+  (let [processed-warc-files (set
+                             (clojure.string/split
+                              (slurp process-save-file)
+                              #"\n"))
+        unprocessed-warcs    (filter
+                              (fn [warc-file]
+                                (not (contains? processed-warc-files warc-file)))
+                              (job-closed-warc-files heritrix-directory))]
+    (doseq [warc-file unprocessed-warcs]
+      (warc-file-handler warc-file))
+    (spit process-save-file (clojure.string/join "\n" unprocessed-warcs))))
+
+(defn uri-resolve-path-query
+  [src target]
+  "uri/resolve-path doesn't carry the target uri over"
+  (if (uri/absolute? target)
+    target
+    (uri/query
+     (uri/resolve-path src target)
+     (uri/query target))))

@@ -3,8 +3,12 @@
   :url "http://www.cs.cmu.edu/~callan/Projects/IIS-1160862/"
   :license {:name "The BSD License"
             :url "http://opensource.org/licenses/BSD-2-Clause"}
-  :dependencies [[clj-time "0.5.1"]
+  :dependencies [[org.clojure/data.xml "0.0.7"]
+                 [commons-codec/commons-codec "1.3"]
+                 [clj-http "0.7.5"]
+                 [clj-time "0.5.1"]
                  [enlive "1.1.1"]
+                 [me.raynes/fs "1.4.4"]
                  [org.bovinegenius/exploding-fish "0.3.3"]
                  [org.lemurproject.clueweb12pp/warc-clojure "0.3.1"]
                  [org.clojure/clojure "1.4.0"]
@@ -15,4 +19,5 @@
                  [com.rubiconproject.oss/jchronic "0.2.6"]
                  [com.joestelmach/natty "0.6"]]
   :aot  :all
-  :jvm-opts ["-Dfile.encoding=utf-8" "-Xmx2000M" "-Xss5000K" "-XX:PermSize=256M" "-XX:MaxPermSize=512M"])
+  :jvm-opts ["-Dfile.encoding=utf-8" "-Xmx2000M" "-Xss5000K" "-XX:PermSize=256M" "-XX:MaxPermSize=512M"]
+  :java-source-paths ["src/main/java"])

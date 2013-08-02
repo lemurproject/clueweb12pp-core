@@ -8,9 +8,27 @@
 (def month-TLA
   ["Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"])
 
+(def month-full-name
+  ["January"
+   "February"
+   "March"
+   "April"
+   "May"
+   "June"
+   "July"
+   "August"
+   "September"
+   "October"
+   "November"
+   "December"])
+
 (defn month->int
   [mon-str]
   (+ 1 (.indexOf month-TLA mon-str)))
+
+(defn month-full-name->int
+  [mon-str]
+  (+ 1 (.indexOf month-full-name mon-str)))
 
 (defn str-replace-month->int
   [a-str]
@@ -21,6 +39,17 @@
              (month->int s)
              s))
     (clojure.string/split a-str #"\s+"))))
+
+(defn str-replace-month-full->int
+  [a-str]
+  (clojure.string/join
+   " "
+   (map
+    (fn [s] (if (>= (.indexOf month-full-name s) 0)
+             (month->int s)
+             s))
+    (clojure.string/split a-str #"\s+"))))
+
 
 (defn zip-str
   [s]
