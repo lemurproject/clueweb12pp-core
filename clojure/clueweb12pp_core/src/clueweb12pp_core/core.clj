@@ -162,3 +162,11 @@
     (uri/query
      (uri/resolve-path src target)
      (uri/query target))))
+
+(defn warc-file-integrity
+  "Tests the integrity of a warc file by iterating through it"
+  [warc-file]
+  (doseq [record (warc/skip-get-response-records-seq
+                  (warc/get-warc-reader warc-file))]
+    (println (:target-uri-str record))
+    (flush)))
