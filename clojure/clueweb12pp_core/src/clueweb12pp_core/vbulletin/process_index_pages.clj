@@ -13,8 +13,7 @@
 
 (defn -main
   [& args]
-  (let [[optional [job-directory] banner] (cli/cli args)]
-    (core/warc-process-engine
-     job-directory
-     *process-save-file*
-     (fn [warc-file] (index-page/handle-warc-file warc-file consts/unfriendly-topics-regex)))))
+  (let [[optional [warc-file] banner] (cli/cli args)]
+    (index-page/handle-warc-file
+     warc-file
+     consts/unfriendly-topics-regex)))

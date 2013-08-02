@@ -18,6 +18,8 @@
 (set! (. Config LoggerProvider) LoggerProvider/DISABLED)
 
 (defn links-in-source
+  "Retuns a sequence of links in a jericho source matching a regex.
+   Jericho source is obtained by doing running: (Source. page-stream)"
   [jericho-source regex]
   (filter
    (fn [a-link] (try (re-find regex a-link)
@@ -29,11 +31,21 @@
      HTMLElementName/A))))
 
 (defn dates-on-page
+  "On an index page, dates are stored in tables.
+   So we parse the table content for dates"
   [jericho-source]
-  (try (page-times/dates-in-text
-        (.toString
-         (TextExtractor. jericho-source)))
-       (catch Exception e [])))
+  (let [tables (.getAllElements
+                jericho-source
+                HTMLElementName/TD)]
+    (flatten
+     (map
+      (fn [table]
+        (let [table-text (.toString
+                         (TextExtractor. table))]
+         (try (page-times/dates-in-text
+               table-text)
+              (catch Exception e []))))
+      tables))))
 
 (defn handle-record
   ([record regex]
@@ -61,8 +73,10 @@
                                                 (list
                                                  (last (clojure.string/split warc-file #"/"))
                                                      "-showthread-liks")))]
-   (doseq [record (warc/skip-get-response-records-seq
+   (doseq [record (warc/get-response-records-seq
                    (warc/get-warc-reader warc-file))]
+     (println "RECORD-URI:" (:target-uri-str record)) ; print this for
+                                                      ; progress checking
      (let [[links dates] (handle-record record regex)]
        (when (some (fn [a-date] (core/in-clueweb12pp-time-range? a-date))
                    dates)
