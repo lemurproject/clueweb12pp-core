@@ -57,7 +57,7 @@
            dates           (utils/with-timeout
                              1000
                              []
-                             (try (dates-on-page source)
+                             (try (doall (dates-on-page source))
                                   (catch Exception e [])))
            processed-links (map
                             (fn [a-link]
