@@ -50,9 +50,22 @@
              s))
     (clojure.string/split a-str #"\s+"))))
 
-
 (defn zip-str
   [s]
   (zip/xml-zip
    (xml/parse
     (java.io.ByteArrayInputStream. (.getBytes s)))))
+
+
+(defmacro with-timeout
+  "Allows us to time-out on expressions.
+   For example, Natty enters some long-winded periods of doing nothing.
+   Now, we can just time out when it is confused by a string"
+  [millis default-return & body]
+    `(let [future# (future ~@body)]
+      (try
+        (.get future# ~millis java.util.concurrent.TimeUnit/MILLISECONDS)
+        (catch java.util.concurrent.TimeoutException x# 
+          (do
+            (future-cancel future#)
+            ~default-return)))))

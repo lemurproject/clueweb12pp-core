@@ -11,6 +11,7 @@
             [clueweb12pp-core.core :as core]
             [clueweb12pp-core.ipboard.consts :as ipboard-consts]
             [clueweb12pp-core.page-times :as page-times]
+            [clueweb12pp-core.utils :as utils]
             [org.bovinegenius.exploding-fish :as uri]
             [warc-clojure.core :as warc])
   (:import [net.htmlparser.jericho Source TextExtractor Config LoggerProvider HTMLElementName]))
@@ -53,8 +54,11 @@
                                 (catch Exception e nil))
            links           (try (links-in-source source regex)
                                 (catch Exception e []))
-           dates           (try (dates-on-page source)
-                                (catch Exception e []))
+           dates           (utils/with-timeout
+                             1000
+                             []
+                             (try (dates-on-page source)
+                                  (catch Exception e [])))
            processed-links (map
                             (fn [a-link]
                               (if (uri/absolute? a-link)
