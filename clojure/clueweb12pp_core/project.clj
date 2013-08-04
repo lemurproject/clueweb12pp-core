@@ -15,6 +15,8 @@
                  [org.clojure/data.json "0.2.2"]
                  [org.clojure/tools.cli "0.2.2"]
                  [org.clojure/tools.reader "0.7.4"]
+                 [org.clojure/java.jdbc "0.0.6"]
+                 [org.xerial/sqlite-jdbc "3.7.2"]
                  [net.htmlparser.jericho/jericho-html "3.3"]
                  [com.rubiconproject.oss/jchronic "0.2.6"]
                  [com.joestelmach/natty "0.6"]]
