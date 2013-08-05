@@ -10,10 +10,9 @@ import time
 from dateutil import parser
 from disqusapi import DisqusAPI, Paginator
 
-
+OUTPUT_FILE = None
+OUTPUT_HANDLE = None
 CLUEWEB_START_EPOCH = 1325394000
-OUTPUT_FILE = '/bos/tmp19/spalakod/clueweb12pp/jobs/disqus/posts2.gz'
-OUTPUT_HANDLE = gzip.open(OUTPUT_FILE, 'ab+')
 DISQUS_LOG = 'posts.log'
 
 def parse_creation_time(date_str):
@@ -34,12 +33,18 @@ if __name__ == '__main__':
 		parser.add_argument('secret_key', metavar = 'secret-key', help = 'Disqus API secret key')
 		parser.add_argument('public_key', metavar = 'public-key', help = 'Disqus API public key')
 		parser.add_argument('--start-date', dest = 'start_date', type = int, default = CLUEWEB_START_EPOCH, help = 'Start at a custom date')
+		parser.add_argument('--log', dest = 'log', help = 'Where to store update')
+		parser.add_argument('--dest', dest = 'dest', help = 'Where to store the posts')
 
 		return parser.parse_args()
 
 	parsed = parse_cmdline_args()
 
+	DISQUS_LOG = parsed.log
 	api = DisqusAPI(parsed.secret_key, parsed.public_key)
+
+	OUTPUT_FILE = parsed.dest
+	OUTPUT_HANDLE = open(OUTPUT_FILE, 'ab')
 
 	since_arg = parsed.start_date
 
