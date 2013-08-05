@@ -58,5 +58,3 @@ if __name__ == '__main__':
 				log(posts_downloaded)
 		except:
 			time.sleep(2000)
-
-		

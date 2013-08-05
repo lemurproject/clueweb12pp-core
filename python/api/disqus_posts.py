@@ -14,10 +14,20 @@ FAILED_IDS = 'disqus_failed_posts.txt'
 FAILED_IDS_HANDLE = open(FAILED_IDS, 'a+')
 sys.stderr = FAILED_IDS_HANDLE
 
-def process_disqus_file(disqus_file):
+def load_downloaded_ids(downloaded):
+	downloaded_ids = set()
+	with open(downloaded, 'r') as downloaded_handle:
+		for new_line in downloaded_handle:
+			downloaded_ids.add(new_line.strip())
+
+	return downloaded_ids
+
+def process_disqus_file(disqus_file, downloaded_file = None):
 	'''
 	process file
 	'''
+	downloaded_ids = load_downloaded_ids(downloaded_file)
+
 	f = gzip.open(disqus_file, 'r')
 
 	while True:
@@ -28,7 +38,9 @@ def process_disqus_file(disqus_file):
 
 		parsed = json.loads(new_line)
 		if parsed['posts'] > 0:
-			print parsed['id']
+			if not parsed['id'] in downloaded_ids:
+				print parsed['id']
+				sys.stdout.flush()
 
 def save_disqus_posts(ids_file, destination, api):
 	'''
@@ -77,16 +89,18 @@ if __name__ == '__main__':
 		parser.add_argument('--secret-key', dest = 'secret_key')
 		parser.add_argument('--public-key', dest = 'public_key')
 
-		parser.add_argument('-d', '--dump-ids', dest = 'dump_ids', default = None, help = 'Pass in a posts.gz file for us to obtain a list of posts')
+		parser.add_argument('-d', '--dump-ids', dest = 'dump_ids', default = [], nargs = '+', help = 'Pass in a posts.gz file for us to obtain a list of posts')
 		parser.add_argument('-s', '--save-posts', dest = 'save_posts', default = None, help = 'Pass in a list of ids and we download the posts')
 		parser.add_argument('--destination', dest = 'destination', help = 'Where to store the resulting posts. Name must end in .gz')
+		parser.add_argument('--downloaded', dest = 'downloaded', default = None, help = 'Log file of previous download. We use this to sift out already downloaded ids')
 
 		return parser.parse_args()
 
 	parsed = parse_cmdline_args()
 
 	if parsed.dump_ids:
-		process_disqus_file(parsed.dump_ids)
+		for filename in parsed.dump_ids:
+			process_disqus_file(filename, parsed.downloaded)
 
 	elif parsed.save_posts:
 		api = DisqusAPI(parsed.secret_key, parsed.public_key)
