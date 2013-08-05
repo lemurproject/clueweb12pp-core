@@ -48,22 +48,25 @@
 ;;;  submission-id : an entry that has an id that looks like t3_###
 ;;;  comment-graph : a tree of comments
 (defn reddit-thread-walk
-  [start-id comment-graph f nil-return]
-  (if (nil? (comment-graph start-id))
-    nil-return
-    (let [y (map
-             (fn [x]
-               (reddit-thread-walk x comment-graph f nil-return))
-             (comment-graph start-id))]
-      (f y))))
+  [start-id comment-graph f child-f]
+  (letfn [(inner [sid acc]
+            (if (> acc 1)
+              acc
+              (if (nil? (comment-graph sid))
+                acc
+                (apply child-f (flatten
+                                (map
+                                 (fn [x] (inner x (f acc)))
+                                 (comment-graph sid)))))))]
+    (inner start-id 0)))
 
 ;;; Walk the comment tree for a submission and compute its size
 (defn reddit-thread-size
   [submission-id comment-graph]
   (reddit-thread-walk submission-id
                       comment-graph
-                      (fn [subtree-results] (+ 1 (apply max (flatten subtree-results))))
-                      0))
+                      (fn [acc] (+ 1 acc))
+                      max))
 
 ;;; Builds a comment-tree from a dump of the hierarchy table
 ;;; We originally have:
@@ -95,13 +98,14 @@
   [path-to-db]
   (let [reddit-hierarchy-dump (reddit-hierarchy path-to-db)
         
-        submissions           (filter
-                               (fn [parent-id]
-                                 (re-find #"t3_" parent-id))
-                               (map
-                                (fn [parent-child] (-> parent-child
-                                                     :parent))
-                                reddit-hierarchy-dump))
+        submissions           (distinct
+                               (filter
+                                (fn [parent-id]
+                                  (re-find #"t3_" parent-id))
+                                (map
+                                 (fn [parent-child] (-> parent-child
+                                                      :parent))
+                                 reddit-hierarchy-dump)))
 
         comment-graph         (dump->tree reddit-hierarchy-dump)
 
@@ -109,7 +113,6 @@
                                (map (fn [submission]
                                       (comment-graph submission))
                                     submissions))]
-    
     (map
      (fn [sub-thread]
        {:thread-id   sub-thread
@@ -118,7 +121,7 @@
 
 (defn -main
   [& args]
-  (let [[optional [path-to-db] banner] (cli/cli args
+  (let [[optional [path-to-db output] banner] (cli/cli args
                                                 ["--top-level-posts-count" :flag true]
                                                 ["--thread-sizes" :flag true])
         
@@ -133,4 +136,5 @@
                (reddit-hierarchy path-to-db top-level-parents-only))))
 
     (when (:thread-sizes optional)
-      (clojure.pprint/pprint (reddit-tree-sizes path-to-db)))))
+      (binding [*out* (java.io.FileWriter. output)]
+       (clojure.pprint/pprint (reddit-tree-sizes path-to-db))))))

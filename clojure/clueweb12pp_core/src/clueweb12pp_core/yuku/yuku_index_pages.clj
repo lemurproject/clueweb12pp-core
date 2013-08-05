@@ -5,7 +5,7 @@
             [clj-time.format :as format-time]
             [clj-time.coerce :as coerce-time]
             [clueweb12pp-core.core :as core]
-            [clueweb12pp_core.page_times :as page-times]
+            [clueweb12pp-core.page-times :as page-times]
             [warc-clojure.core :as warc]
             (org.bovinegenius [exploding-fish :as uri]))
   (:import [net.htmlparser.jericho Source TextExtractor Config LoggerProvider HTMLElementName]))

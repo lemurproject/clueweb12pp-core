@@ -3,6 +3,6 @@
   (:require [clueweb12pp-core.core :as core]))
 
 
-;;; IP-Board topic url styles
-(def unfriendly-topics-regex #".*\?showthread.php.*")
+;;; vBulletin topic url styles
+(def unfriendly-topics-regex #".*showthread.php.*")
 
