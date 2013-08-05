@@ -3,6 +3,7 @@
   (require [clj-time.core :as ctime-core]
            [clojure.java.io :as io]
            [clojure.set]
+           [clueweb12pp-core.utils :as utils]
            [net.cgrand.enlive-html :as html]
            [org.bovinegenius.exploding-fish :as uri]
            [warc-clojure.core :as warc]))
@@ -170,3 +171,20 @@
                   (warc/get-warc-reader warc-file))]
     (println (:target-uri-str record))
     (flush)))
+
+;;; Check if a warc file was unfinished and return which position to
+;;; restart from. This has happened to us as a result of a bug in the
+;;; Natty library. As a result, we prefix our dumps using RECORD-URI
+;;; and place the target-string-uri term in front. This is the
+;;; offending warc that needs to be skipped (essentially).
+(defn restart-warc-file
+  [path-to-output]
+  (let [record-uri-regex #"RECORD-URI:(.*)"]
+    (count
+     (filter
+      identity
+      (map
+       (fn [line]
+         (second (re-find record-uri-regex line)))
+       (utils/lines path-to-output))))))
+

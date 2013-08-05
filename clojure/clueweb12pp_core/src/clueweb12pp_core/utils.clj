@@ -69,3 +69,19 @@
           (do
             (future-cancel future#)
             ~default-return)))))
+
+;;; Returns a list of lines in a (reasonably-small) file
+(defn lines
+  [filename]
+  (filter
+   #(not (clojure.string/blank? %))
+   (clojure.string/split (try
+                           (slurp filename)
+                           (catch Exception e nil))
+                         #"\n")))
+
+;;; Used to skip past a record that has caused a processing job to
+;;; crash. We drop the offending record as well
+(defn warc-skip-to-record
+  [warc-response-records-seq skip-target-uri]
+  (drop skip-target-uri warc-response-records-seq))

@@ -66,23 +66,37 @@
        (list processed-links dates)))
   ([record] (handle-record record #".*")))
 
+;;; Routine to check whether a job has already been completed.
+;;; Essentially the last line shouldn't be a RECORD-URI. This is
+;;; obviously not a sound strategy since a natural completion will
+;;; also have gotten this far. The idea is that in case we screwed up
+;;; on the last process, will catch it, else it will restart by
+;;; skipping over the offending warc file.
 (defn handle-warc-file
   [warc-file regex]
-  (binding [*out* (java.io.FileWriter.
-                           (clojure.string/join "-"
-                                                (list
-                                                 (last (clojure.string/split warc-file #"/"))
-                                                     "-showthread-liks")))]
-   (doseq [record (warc/get-response-records-seq
-                   (warc/get-warc-reader warc-file))]
-     (println "RECORD-URI:" (:target-uri-str record)) ; print this for
-                                                      ; progress checking
-     (let [[links dates] (handle-record record regex)]
-       (when (some (fn [a-date] (core/in-clueweb12pp-time-range? a-date))
-                   dates)
-         (doseq [link links]
-           (println link)
-           (flush)))))))
+  (let [out-file         (clojure.string/join
+                          "-"
+                          (list
+                           (last (clojure.string/split warc-file #"/"))
+                           "-showthread-liks"))
+        
+        last-read-record (core/restart-warc-file out-file)
+        
+        warc-seq         (utils/warc-skip-to-record
+                          (warc/get-response-records-seq
+                           (warc/get-warc-reader warc-file))
+                          last-read-record)]
+
+    (binding [*out* (java.io.FileWriter. out-file true)]
+     (doseq [record warc-seq]
+       (println "RECORD-URI:" (:target-uri-str record)) ; print this for
+                                        ; progress checking
+       (let [[links dates] (handle-record record regex)]
+         (when (some (fn [a-date] (core/in-clueweb12pp-time-range? a-date))
+                     dates)
+           (doseq [link links]
+             (println link)
+             (flush))))))))
 
 (defn process-warc-files-list
   [text-file]
