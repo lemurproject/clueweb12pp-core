@@ -12,7 +12,7 @@ from disqusapi import DisqusAPI, Paginator, APIError
 
 FAILED_IDS = 'disqus_failed_posts.txt'
 FAILED_IDS_HANDLE = open(FAILED_IDS, 'a+')
-sys.stderr = FAILED_IDS_HANDLE
+
 
 def load_downloaded_ids(downloaded):
 	downloaded_ids = set()
@@ -61,6 +61,7 @@ def save_disqus_posts(ids_file, destination, api):
 					# Wait out 2000 seconds since the API doesn't
 					# tell us how many seconds we need to wait for
 					if err.code == 2:
+						#sys.stderr.write(new_id)
 						continue # forum doesn't exist so just iterate out
 
 					sys.stderr.write('INFO: APIError' + '\n')
@@ -93,6 +94,7 @@ if __name__ == '__main__':
 		parser.add_argument('-s', '--save-posts', dest = 'save_posts', default = None, help = 'Pass in a list of ids and we download the posts')
 		parser.add_argument('--destination', dest = 'destination', help = 'Where to store the resulting posts. Name must end in .gz')
 		parser.add_argument('--downloaded', dest = 'downloaded', default = None, help = 'Log file of previous download. We use this to sift out already downloaded ids')
+		parser.add_argument('--failed-ids', dest = 'failed_ids', default = None, help = 'Store ids that failed')
 
 		return parser.parse_args()
 
@@ -103,5 +105,8 @@ if __name__ == '__main__':
 			process_disqus_file(filename, parsed.downloaded)
 
 	elif parsed.save_posts:
+		FAILED_IDS = parsed.failed_ids
+		FAILED_IDS_HANDLE = open(FAILED_IDS, 'a+')
+		#sys.stderr = FAILED_IDS_HANDLE
 		api = DisqusAPI(parsed.secret_key, parsed.public_key)
 		save_disqus_posts(parsed.save_posts, parsed.destination, api)
