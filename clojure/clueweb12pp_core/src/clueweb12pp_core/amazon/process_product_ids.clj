@@ -34,8 +34,8 @@
 
 (defn -main
   [& args]
-  (let [[optional [& amazon-pages-warc-files] banner] (cli/cli args)]
-    (doseq [warc-file amazon-pages-warc-files]
+  (let [[optional [amazon-pages-job] banner] (cli/cli args)]
+    (doseq [warc-file (core/job-warc-files amazon-pages-job)]
       (doseq [record (warc/skip-get-response-records-seq
                       (warc/get-warc-reader warc-file))]
         (doseq [link (handle-record record)]

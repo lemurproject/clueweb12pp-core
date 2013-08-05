@@ -22,5 +22,5 @@
                  [com.joestelmach/natty "0.6"]]
   :dev-dependencies [[org.clojure/java.jdbc "0.0.6"]]
   :aot  :all
-  :jvm-opts ["-Dfile.encoding=utf-8" "-Xmx20G" "-Xss25G"]
+  :jvm-opts ["-Dfile.encoding=utf-8" "-Xmx2G"]
   :java-source-paths ["src/main/java"])
