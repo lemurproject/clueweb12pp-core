@@ -6,6 +6,9 @@ import re
 import urlparse
 
 
+class UnhandledURLStyleError(Exception):
+	pass
+
 def process_unfriendly_subforum_urls(url):
 	'''
 	The vBulletin subforums are of the type:
@@ -75,4 +78,85 @@ def vbseo_subforum_urls_2(url):
 	'''
 
 	return re.search(r'(.*/)\d+(-.*)*.html', url).group(1)
-	
+
+def vbulletin_unfriendly_topics(url):
+	'''
+	Topic urls of the type: showthread.php
+	'''
+
+	if url.find('showthread.php') < 0:
+		return None
+
+	# fix poorly resolved url paths:
+	if url.find('forumdisplay.php') >= 0:
+		matcher = re.search(r'(forumdisplay.php.*)showthread.php', url).group(1)
+		url = url.replace(matcher, '')
+		
+	parsed = urlparse.urlparse(url)
+
+	if parsed.path.find('showthread.php') < 0:
+		return
+
+	if post_id_query(parsed):
+		return
+
+	result = topic_id_query_links(parsed) or topic_slug_query_links(parsed) or topic_slug_path_links(parsed)
+	if result: return result
+
+	raise UnhandledURLStyleError('Unrecognized url format: %s' % url)
+
+def post_id_query(parsed_url):
+	return re.search(r'p=\d+', parsed_url.query)
+
+def topic_id_query_links(parsed_url):
+	'''
+	showthread.php?t=#/tid=#/threadid=#
+	'''
+	scheme, netloc, path, params, query, fragment = list(parsed_url)
+
+	query_matcher = re.search(r'(t=\d+|tid=\d+|threadid=\d+)', query)
+
+	if query_matcher:
+		return urlparse.urlunparse([
+			scheme, 
+			netloc, 
+			path, 
+			params,
+			query_matcher.group(1),
+			fragment
+		])
+
+def topic_slug_query_links(parsed_url):
+	'''
+	showthread.php?topic-slug
+	'''
+	if not parsed_url.query:
+		return
+
+	query_parts = parsed_url.query.split('&')
+	check = [query_part.find('=') < 0 for query_part in query_parts]
+	if any(check):
+		return urlparse.urlunparse([
+			parsed_url.scheme, 
+			parsed_url.netloc, 
+			parsed_url.path, 
+			parsed_url.params,
+			query_parts[check.index(True)],
+			parsed_url.fragment
+		])
+
+def topic_slug_path_links(parsed_url):
+	'''
+	showthread.php/topic-slug/?nonsense
+	'''
+	matcher = re.search(r'(showthread.php/.*/?).*', parsed_url.path)
+
+	if matcher:
+		return urlparse.urlunparse([
+			parsed_url.scheme, 
+			parsed_url.netloc, 
+			matcher.group(1), 
+			parsed_url.params,
+			'',
+			parsed_url.fragment
+		])
