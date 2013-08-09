@@ -42,10 +42,7 @@
 
 (defn dump-page
   [page-uri page-content output-file]
-  (with-open [output (-> output-file
-                        clojure.java.io/output-stream
-                        GZIPOutputStream.
-                        clojure.java.io/writer)]
+  (with-open [output (clojure.java.io/writer output-file :append true)]
     (binding [*out* output]
       (println
        (json/write-str
