@@ -9,7 +9,11 @@
            [warc-clojure.core :as warc]))
 
 (def clueweb12pp-time-start (ctime-core/date-time 2012 01 01))
+
 (def clueweb12pp-time-end (ctime-core/date-time 2012 06 30))
+
+(def clueweb12pp-crawler
+  "Mozilla/5.0 (compatible; mandalay admin@lemurproject.org; +http://boston.lti.cs.cmu.edu/crawler/clueweb12pp/")
 
 ;;;; Is the specified time in the clueweb12pp time range
 (defn in-clueweb12pp-time-range?
