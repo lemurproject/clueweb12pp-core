@@ -61,5 +61,12 @@ if __name__ == '__main__':
 				posts_downloaded += 1
 				last_read_time = (parse_creation_time(result['createdAt']) - datetime.datetime(1970,1,1)).total_seconds()
 				log(posts_downloaded)
-		except:
-			time.sleep(2000)
+		except Exception as e:
+			if e.code == 13:
+				time.sleep(2000)
+			elif e.code == 15:
+				last_read_time += 1
+				continue
+			import ipdb
+			ipdb.set_trace()
+			
