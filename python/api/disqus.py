@@ -67,6 +67,4 @@ if __name__ == '__main__':
 			elif e.code == 15:
 				last_read_time += 1
 				continue
-			import ipdb
-			ipdb.set_trace()
 			
