@@ -14,10 +14,10 @@
 (defn download
   "Downloads and returns the page html content"
   [page-uri]
-  (utils/try-times
-   10
-   (when page-uri
-     (:body (client/get
+  (when page-uri
+    (:body (utils/try-times
+            10
+            (client/get
              page-uri
              {:headers {"User-Agent" core/clueweb12pp-crawler}})))))
 
