@@ -106,3 +106,15 @@
   the call chain."
   [n & body]
   `(try-times* ~n (fn [] ~@body)))
+
+(defn fs-join
+  "Joins directory and object to get directory/object"
+  [dir-path obj-path]
+  (if (= (last dir-path) \/)
+    (clojure.string/join "" (list dir-path obj-path))
+    (clojure.string/join "/" (list dir-path obj-path))))
+
+(defn file-exists?
+  [file-path]
+  (.exists
+   (java.io.File. file-path)))

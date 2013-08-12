@@ -183,12 +183,14 @@
 ;;; offending warc that needs to be skipped (essentially).
 (defn restart-warc-file
   [path-to-output]
-  (let [record-uri-regex #"RECORD-URI:(.*)"]
-    (count
-     (filter
-      identity
-      (map
-       (fn [line]
-         (second (re-find record-uri-regex line)))
-       (utils/lines path-to-output))))))
+  (if (utils/file-exists? path-to-output)
+    (let [record-uri-regex #"RECORD-URI:(.*)"]
+      (count
+       (filter
+        identity
+        (map
+         (fn [line]
+           (second (re-find record-uri-regex line)))
+         (utils/lines path-to-output)))))
+    0))
 
