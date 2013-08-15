@@ -25,8 +25,8 @@ class StackOverflowContentHandler(xml.sax.ContentHandler):
 	def endElement(self, name):
 		if name == 'posts':
 			print 'Number of posts:', self.post_count
-			print 'Number of posts overall:', self.question_count
-			print 'Number of posts with answers:', self.question_with_answer_count
+			print 'Number of questions:', self.question_count
+			print 'Number of questions with answers:', self.question_with_answer_count
 			print 'Number of posts with comments:', self.comment_post_count
 
 	def process_post_row(self, name, attrs):
