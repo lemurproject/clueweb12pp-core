@@ -11,7 +11,7 @@
             [warc-clojure.core :as warc]))
 
 (defn handle-record
-  [record]
+  [record with-discussions]
   (let [product-reviews-table (first
                                (filter
                                 (fn [a-table]
@@ -57,7 +57,9 @@
                                         :href))
                                    (filter
                                     (fn [a-tag]
-                                      (re-find #"Comment.*\d+.*" (html/text a-tag)))
+                                      (if (not with-discussions)
+                                        (re-find #"Comment" (html/text a-tag))
+                                        (re-find #"Comment.*\d+.*" (html/text a-tag))))
                                     (html/select
                                      a-review
                                      [:a]))))))]
@@ -73,15 +75,16 @@
         reviews)))))
 
 (defn handle-job
-  [job-directory]
+  [job-directory with-discussions]
   (doseq [warc-file (core/job-warc-files job-directory)]
     (doseq [record (warc/skip-get-response-records-seq
                     (warc/get-warc-reader warc-file))]
-      (doseq [link (handle-record record)]
+      (doseq [link (handle-record record with-discussions)]
         (when link
           (println link))))))
 
 (defn -main
   [& args]
-  (let [[optional [amazon-reviews-job] banner] (cli/cli args)]
-    (handle-job amazon-reviews-job)))
+  (let [[optional [amazon-reviews-job] banner] (cli/cli args
+                                                        ["--with-discussions" :flag true])]
+    (handle-job amazon-reviews-job (:with-discussions optional))))

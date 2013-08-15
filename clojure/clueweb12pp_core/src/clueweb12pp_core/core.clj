@@ -194,3 +194,34 @@
          (utils/lines path-to-output)))))
     0))
 
+(defn job-crawl-log-files
+  "Identify crawl.log files in a heritrix job directory"
+  [job-directory]
+  (map
+   #(.getAbsolutePath %)
+   (filter
+    (fn [a-file]
+      (re-find #"crawl.log" (.getAbsolutePath a-file)))
+    (file-seq (io/file job-directory)))))
+
+(defn search-crawl-log
+  [crawl-log-file regex]
+  (doall
+   (let [rdr (io/reader crawl-log-file)]
+     (filter
+      (fn [a-link]
+        (re-find regex a-link))
+      (map
+       (fn [a-line]
+         (let [[_ _ _ target _ src _ _ _ _ _ _] (clojure.string/split a-line #"\s+")]
+           target))
+       (line-seq rdr))))))
+
+(defn search-crawl-logs
+  "Go through a heritrix job's crawl directory
+and apply the regex provided to the URLs crawled"
+  [job-directory regex]
+  (flatten
+   (map
+    #(search-crawl-log % regex)
+    (job-crawl-log-files job-directory))))
