@@ -26,8 +26,4 @@
                      (list
                       (last (clojure.string/split warc-file #"/"))
                       "-links.txt"))]
-    (with-open [w (clojure.java.io/writer output-file :append true)]
-     (binding [*out* w]
-       (doseq [record (warc/skip-get-response-records-seq
-                       (warc/get-warc-reader warc-file))]
-         (handle-record record))))))
+    (core/do-to-warc-file warc-file handle-record output-file)))

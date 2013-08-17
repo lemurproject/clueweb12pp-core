@@ -12,6 +12,8 @@
 
 (def clueweb12pp-time-end (ctime-core/date-time 2012 06 30))
 
+(def target-uri-marker "RECORD-URI:")
+
 (def clueweb12pp-crawler
   "Mozilla/5.0 (compatible; mandalay admin@lemurproject.org; +http://boston.lti.cs.cmu.edu/crawler/clueweb12pp/")
 
@@ -225,3 +227,19 @@ and apply the regex provided to the URLs crawled"
    (map
     #(search-crawl-log % regex)
     (job-crawl-log-files job-directory))))
+
+(defn do-to-warc-file
+  "Apply handle-record to a warc file with enough info to
+re-bootstrap a hung job. This function returns nil."
+  [warc-file handle-record output-file]
+  (let [restart-from (restart-warc-file output-file)]
+    (with-open
+        [wrtr (io/writer output-file)]
+      (binding [*out* wrtr]
+       (doseq [record (drop
+                       restart-from
+                       (warc/skip-get-response-records-seq
+                        (warc/get-warc-reader warc-file)))]
+         (println target-uri-marker (:target-uri-str record))
+         (flush)
+         (handle-record record))))))

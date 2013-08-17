@@ -88,15 +88,15 @@
 
 (defn try-times*
   "Executes thunk. If an exception is thrown, will retry. At most n retries
-  are done. If still some exception is thrown it is bubbled upwards in
-  the call chain."
+  are done. If still some exception is thrown we just return nil."
   [n thunk]
   (loop [n n]
     (if-let [result (try
                       [(thunk)]
                       (catch Exception e
+                        (Thread/sleep 1000)
                         (when (zero? n)
-                          (throw e))))]
+                          nil)))]
       (result 0)
       (recur (dec n)))))
 
