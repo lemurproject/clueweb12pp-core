@@ -234,7 +234,7 @@ re-bootstrap a hung job. This function returns nil."
   [warc-file handle-record output-file]
   (let [restart-from (restart-warc-file output-file)]
     (with-open
-        [wrtr (io/writer output-file)]
+        [wrtr (io/writer output-file :append true)]
       (binding [*out* wrtr]
        (doseq [record (drop
                        restart-from
