@@ -13,6 +13,9 @@
             [clueweb12pp-core.core :as core]
             [net.cgrand.enlive-html :as html]))
 
+(def ^:dynamic posts-file nil)
+(def ^:dynamic trace-file nil)
+
 (defn dates-on-narkive-page
   "Get the max date on the page."
   [page-src]
@@ -64,7 +67,7 @@ many pages there are overall"
                           :href))
                      (-> page-src
                         (html/select [:div.thread_lister_bit :a])))]
-    (println post-link)))
+    (spit posts-file (str post-link "\n") :append true)))
 
 (defn span-neighborhood-direction
   [narkive-link pg-num op]
@@ -92,8 +95,7 @@ many pages there are overall"
 
 (defn search-start-time-range
   [narkive-link start end]
-  (binding [*out* *err*]
-   (println narkive-link start end))
+  (spit trace-file (str narkive-link " " start " " end "\n") :append true)
   (. Thread sleep 3000)
   (let [mid               (int (/ (+ start end) 2))
         
@@ -124,11 +126,29 @@ many pages there are overall"
             :else                          ; no post in time range
             nil))))
 
+(defn get-posts-file
+  [newsgroup-link]
+  (clojure.string/join
+   ""
+   (list
+    (last (re-find #"http://(.*)narkive.com" newsgroup-link))
+    "posts")))
+
+(defn get-trace-file
+  [newsgroup-link]
+  (clojure.string/join
+   ""
+   (list
+    (last (re-find #"http://(.*)narkive.com" newsgroup-link))
+    "trace")))
+
 (defn -main
   [& args]
   (let [[optional [newsgroup-link] banner] (cli/cli args)]
-    (search-start-time-range
-     newsgroup-link
-     1
-     (java.lang.Integer/parseInt
-      (scope-newsgroup (page-url newsgroup-link 2))))))
+    (binding [posts-file (get-posts-file newsgroup-link)
+              trace-file (get-trace-file newsgroup-link)]
+      (search-start-time-range
+       newsgroup-link
+       1
+       (java.lang.Integer/parseInt
+        (scope-newsgroup (page-url newsgroup-link 2)))))))
