@@ -55,9 +55,40 @@ many pages there are overall"
                                 "p/"
                                 (str page-num))))
 
+(defn extract-posts
+  [page-src]
+  (doseq [post-link (map
+                     (fn [an-a-tag]
+                       (-> an-a-tag
+                          :attrs
+                          :href))
+                     (-> page-src
+                        (html/select [:div.thread_lister_bit :a])))]
+    (println post-link)))
+
+(defn span-neighborhood-direction
+  [narkive-link pg-num op]
+  (. Thread sleep 3000)
+  (let [page-link (page-url narkive-link pg-num)
+        
+        page-src  (-> page-link
+                     core/html-resource)
+        
+        dates     (-> page-src
+                     dates-on-narkive-page)]
+    
+    (when (and (some core/in-clueweb12pp-time-range? dates)
+             (> pg-num 0))
+      (extract-posts page-src)
+      (recur narkive-link (op pg-num) op))))
+
 (defn span-neighborhood
-  [page-url]
-  (println "PAGE IDENTIFIED!!!!" page-url))
+  "Download pages in the neighborhood of the specified page"
+  [narkive-link pg-num]
+  (flatten
+   (list
+    (span-neighborhood-direction narkive-link pg-num dec)
+    (span-neighborhood-direction narkive-link pg-num inc))))
 
 (defn search-start-time-range
   [narkive-link start end]
@@ -76,17 +107,17 @@ many pages there are overall"
                 (= end mid)))
       (cond (some core/in-clueweb12pp-time-range?
                   dates-on-mid-page)
-            (span-neighborhood (page-url narkive-link mid)) ; identified time-range posts
+            (span-neighborhood narkive-link mid) ; identified time-range posts
 
             (every?
              (fn [date] (core-time/after? date core/clueweb12pp-time-end))
              dates-on-mid-page)
-            (recur narkive-link mid end) ; ended up beyond the time-range
+            (recur narkive-link (inc mid) end) ; ended up beyond the time-range
 
             (every?
              (fn [date] (core-time/before? date core/clueweb12pp-time-start))
              dates-on-mid-page)
-            (recur narkive-link start mid)   ; ended up short of the
+            (recur narkive-link start (dec mid)) ; ended up short of the
                                         ; time range
 
             :else                          ; no post in time range
