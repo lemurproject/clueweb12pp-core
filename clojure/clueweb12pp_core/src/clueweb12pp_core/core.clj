@@ -1,6 +1,7 @@
 (ns clueweb12pp-core.core
   (:gen-class)
   (require [clj-time.core :as ctime-core]
+           [clj-http.client :as client]
            [clojure.java.io :as io]
            [clojure.set]
            [clueweb12pp-core.utils :as utils]
@@ -249,3 +250,12 @@ re-bootstrap a hung job. This function returns nil."
   [warc-file]
   (warc/skip-get-response-records-seq
    (warc/get-warc-reader warc-file)))
+
+(defn html-resource
+  "This function exists since enlive's html-resource
+doesn't allow us to specify a User-Agent string"
+  [url]
+  (-> (client/get url {:headers {"User-Agent" clueweb12pp-crawler}})
+     :body
+     java.io.StringReader.
+     html/html-resource))
