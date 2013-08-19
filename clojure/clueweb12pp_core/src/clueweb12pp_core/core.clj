@@ -243,3 +243,9 @@ re-bootstrap a hung job. This function returns nil."
          (println target-uri-marker (:target-uri-str record))
          (flush)
          (handle-record record))))))
+
+(defn warc-records-seq
+  "Returns a seq of records in a warc. Saves you 1 call"
+  [warc-file]
+  (warc/skip-get-response-records-seq
+   (warc/get-warc-reader warc-file)))
