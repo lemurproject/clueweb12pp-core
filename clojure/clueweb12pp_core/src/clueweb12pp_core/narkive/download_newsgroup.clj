@@ -92,7 +92,8 @@ many pages there are overall"
 
 (defn search-start-time-range
   [narkive-link start end]
-  (println narkive-link start end)
+  (binding [*out* *err*]
+   (println narkive-link start end))
   (. Thread sleep 3000)
   (let [mid               (int (/ (+ start end) 2))
         
@@ -126,8 +127,8 @@ many pages there are overall"
 (defn -main
   [& args]
   (let [[optional [newsgroup-link] banner] (cli/cli args)]
-    (println (search-start-time-range
-              newsgroup-link
-              1
-              (java.lang.Integer/parseInt
-               (scope-newsgroup (page-url newsgroup-link 2)))))))
+    (search-start-time-range
+     newsgroup-link
+     1
+     (java.lang.Integer/parseInt
+      (scope-newsgroup (page-url newsgroup-link 2))))))
