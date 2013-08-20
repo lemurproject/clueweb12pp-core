@@ -19,6 +19,11 @@ def process_heritrix_job(heritrix_job_directory, redirect = False):
 
 	return final_target_src_map
 
+def process_heritrix_job_links(heritrix_job_directory):
+	for crawl_log_file in get_heritrix_files(heritrix_job_directory):
+		for link in parse_crawl_log_file_raw(crawl_log_file):
+			print link
+
 def get_heritrix_files(heritrix_job):
 	'''
 	Gets crawler log file sequence for the job directory
@@ -27,6 +32,16 @@ def get_heritrix_files(heritrix_job):
 		for filename in files:
 			if filename.find('crawl.log') >= 0 and filename.find('lck') < 0:
 				yield os.path.join(root, filename)
+
+def parse_crawl_log_file_raw(crawl_log_file):
+	'''
+	Read only the downloaded links from the crawl log
+	'''
+	with open(crawl_log_file, 'r') as crawl_log_file_handle:
+		for new_line in crawl_log_file_handle:
+			_, _, _, target, _, _, _, _, _, _, _, _ = new_line.split()
+
+			yield target
 
 def parse_crawl_log_file(crawl_log_file):
 	'''
@@ -83,6 +98,7 @@ if __name__ == '__main__':
 		parser = argparse.ArgumentParser()
 
 		parser.add_argument('heritrix_job_directory', metavar = 'heritrix-job-directory', help = '/path/to/heritrix-job-directory')
+		parser.add_argument('-g', '--graph', action = 'store_true', default = False, help = 'Graph as opposed to just the links', dest = 'graph')
 		parser.add_argument('-r', '--redirects', action = 'store_true', default = False, help = 'Get only the redirect graph', dest = 'redirects')
 
 		return parser.parse_args()
@@ -90,11 +106,10 @@ if __name__ == '__main__':
 	parsed = parse_cmdline_args()
 
 	target_src_map = None
-
-	if not parsed.redirects:
-		target_src_map = process_heritrix_job(parsed.heritrix_job_directory)
+	if parsed.graph:
+		if not parsed.redirects:
+			target_src_map = process_heritrix_job(parsed.heritrix_job_directory)
+		else:
+			target_src_map = process_heritrix_job(parsed.heritrix_job_directory, redirect = True)
 	else:
-		target_src_map = process_heritrix_job(parsed.heritrix_job_directory, redirect = True)
-
-	import ipdb
-	ipdb.set_trace()
+		process_heritrix_job_links(parsed.heritrix_job_directory)
